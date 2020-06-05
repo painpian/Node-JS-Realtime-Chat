@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<title>Page Title</title>
+
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+		<!-- font awesome -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" />
+		<!-- main style -->
+		<link rel="stylesheet" href="../chat/assets/css/style.css" type="text/css" />
+		<!-- helper style -->
+		<link rel="stylesheet" href="../chat/assets/css/global_helper.css" type="text/css" />
+		<!-- web socket !-->
+		 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+	</head>
+	<body>
+		{{> leftsidebar}}
+
+		{{> rightsidebar}}
+
+		{{{ body }}}
+		<!-- modal bootstrap !-->
+		{{> modal}}
+		<!-- Optional JavaScript -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script></body>
+		<script src="../chat/assets/js/socket.js"></script>
+		<!-- custome javascript -->
+		<script>
+			//select chat active (event from history chat)
+			function activeChat(e) {
+				var rows = document.querySelectorAll('.row');
+				var i;
+				for(i = 0; i < rows.length; i++) {
+					rows[i].classList.remove('active-chat');
+				}
+				e.classList.add('active-chat');
+				//set destination chats
+				var destination_name = e.children[1].children[0].children[0].children[0].innerHTML;
+				var destination_profile = e.children[0].children[0].getAttribute('src');
+				//set user chat
+				var chat_active = document.querySelector('.chat-active');
+					chat_active.children[0].setAttribute('src', destination_profile);
+					chat_active.children[1].children[0].innerHTML = '&nbsp;' + destination_name;
+			}
+			//select chat active (event from online user)
+			function setActiveChat(e) {
+				var destination_profile = e.children[0].getAttribute('src');
+				var destination_name = e.children[1].innerHTML;
+
+				//set user chat
+				var chat_active = document.querySelector('.chat-active');
+					chat_active.children[0].setAttribute('src', destination_profile);
+					chat_active.children[1].children[0].innerHTML = '&nbsp;' + destination_name;
+			}
+			//simulation append chat text
+			function appendText() {
+				var text = document.querySelector("input[name='chat_message']").value;
+				var element = '<div class="row">'+
+									'<div class="right-chat">'+
+										'<span class="chat-text">'+
+											text +
+										'</span>'+
+										'<br/>'+
+										'<span class="chat-time" style="float: right;">'+
+											'14:20 PM'+
+										'</span>'+
+									'</div>'+
+								'</div>';
+				var content = document.querySelector('.content');
+					content.innerHTML += element;
+					content.scrollTop +=200;
+					document.querySelector("input[name='chat_message']").value = '';
+
+			}
+			/*add to do list*/
+			function addActivity() {
+				var title = document.querySelector("input[name='title']").value;
+				var todo = document.querySelector('.todo ul');
+					todo.innerHTML += '<li><i class="fa fa-university"></i> '+ title+'</li>';
+				var btn_close =  document.getElementById('close-modal');
+					btn_close.click();
+			}
+		</script>
+	</body>
+</html>

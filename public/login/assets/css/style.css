@@ -1,0 +1,136 @@
+body{
+	padding: 0px;
+	margin: 0px;
+	background: linear-gradient(red, yellow);
+	background-position: cover;
+	height: 100%;
+}
+::placeholder{
+	color: #900909;
+}
+.img-logo{
+	height: 100px;
+	width: 100px;
+}
+.content{
+	margin: auto;
+	width: 80%;
+	margin-top: 6%;
+	background: #fff;
+	box-shadow: 5px #f2f2f2;
+	border-radius: 5px;
+	margin-bottom: 8%;
+}
+.left{
+	padding: 30px 50px 30px 50px;
+	text-align: center;
+}
+.form{
+	margin-top: 20px;
+}
+.form-group{
+	margin-bottom: 1rem;
+    background: gainsboro;
+    padding: 10px 10px 10px 15px;
+    border-radius: 20px;
+    text-align: left;
+    color: #900909;
+}
+.form-group > input[type="text"], .form-group > input[type="password"] {
+	background: transparent;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    width: 80%;
+    color: #900909;
+}
+.form > form > button{
+	margin-bottom: 20px;
+    margin-top: 15px;
+    width: 100%;
+    border-radius: 20px;
+    padding: 10px;
+    background: #900909;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    overflow: none;
+    outline: none;
+    transition: 0.5s;
+}
+.form > form > button:hover{
+	background: rgba(0,0,0,0.6);
+}
+.color-red{
+	color: #900909;
+	font-weight: bold;
+	cursor: pointer;
+}
+.socialmedia{
+	border-top: 2px solid gainsboro;
+	padding-top: 20px;
+}
+.socialmedia > span{
+	color: #900909;
+	font-size: 14px;
+	font-weight: bold;
+}
+.socialmedia > ul{
+	text-align: left;
+	margin-left: 17%;
+}
+.socialmedia > ul >li{
+	list-style-type: none;
+	display: inline;
+	margin-left: 10px;
+}
+.socialmedia > ul > li > button{
+	border-radius: 50%;
+	width: 40px;
+	height: 40px;
+	border: none;
+	outline: none;
+	background: #900909;
+	color: white;
+	transition: 0.5s;
+}
+.socialmedia > ul > li > button:hover{
+	background: rgba(0, 0, 0, 0.6);
+}
+.right{
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	padding: 0px;
+	text-align: center;
+}
+.right > .overlay{
+	background: rgba(255, 0, 0, 0.4);
+	color: white;
+	height: 100%;
+	width: 100%;
+	padding-top: 40%;
+	padding-left: 30px;
+	padding-right: 30px;
+}
+.right > .overlay > h4{
+	margin-bottom: 20px;
+}
+.right > .overlay > span{
+	font-size: 14px;
+}
+.right > .overlay > p > button{
+	margin-top: 30px;
+    padding: 10px;
+    border-radius: 30px;
+    background: transparent;
+    color: white;
+    font-size: 14px;
+    width: 120px;
+    outline: none;
+    border: 1px solid white;
+    transition: 0.5s;
+}
+.right > .overlay > p > button:hover{
+	background: rgba(0, 0, 0, 0.4);
+}
